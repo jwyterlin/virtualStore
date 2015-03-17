@@ -2,6 +2,7 @@ class Library
 
   def initialize
     @database_files = DatabaseFiles.new
+    @books ||= []
   end
 
   def add(book)
@@ -15,7 +16,7 @@ class Library
   end
 
   def books
-    @books ||= @database_files.load
+    @books = @database_files.load
   end
 
   private
