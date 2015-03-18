@@ -9,4 +9,8 @@ class CD < Media
     @category = category
   end
 
+  def to_s
+    %Q{ Title: #{@title}, Value: #{@value} }
+  end
+
 end
