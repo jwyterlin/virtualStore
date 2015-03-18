@@ -10,6 +10,7 @@ class Book < Media
     @number_of_pages = number_of_pages
     @category = category
     @value = value
+    @discount = 0.15
   end
 
   def to_s

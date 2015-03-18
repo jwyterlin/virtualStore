@@ -5,6 +5,7 @@ class DVD < Media
     @title = title
     @value = value
     @category = category
+    @discount = 0.1
   end
 
   def to_s
