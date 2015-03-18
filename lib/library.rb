@@ -1,4 +1,4 @@
-class Library
+class Set
 
   def initialize
     @database_files = DatabaseFiles.new
