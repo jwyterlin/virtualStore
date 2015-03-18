@@ -1,5 +1,4 @@
 # coding utf-8
-
 class Book < Media
 
   attr_reader :category, :isbn, :author
