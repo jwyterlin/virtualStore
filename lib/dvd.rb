@@ -2,10 +2,10 @@
 class DVD < Media
 
   def initialize( title, value, category )
+    super()
     @title = title
     @value = value
     @category = category
-    @discount = 0.1
   end
 
   def to_s
