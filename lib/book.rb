@@ -3,6 +3,8 @@ class Book < Media
 
   attr_reader :category, :isbn, :author
 
+  include CurrencyFormatter
+
   def initialize( title, author, isbn = '1', number_of_pages, value, category )
     @title = title
     @author = author
