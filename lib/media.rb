@@ -12,4 +12,9 @@ class Media
     @value - (@value * @discount)
   end
 
+  # Brazillian currency
+  def formatted_value
+    "R$ #{@value}"
+  end
+
 end
