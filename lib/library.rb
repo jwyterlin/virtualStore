@@ -1,4 +1,6 @@
-class Set
+class Library
+
+  include Enumerable
 
   def initialize
     @database_files = DatabaseFiles.new
@@ -17,6 +19,10 @@ class Set
 
   def books
     @books = @database_files.load
+  end
+
+  def each
+    books.each { |book| yield book }
   end
 
   private
