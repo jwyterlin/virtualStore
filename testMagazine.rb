@@ -1,3 +1,5 @@
+require File.expand_path("lib/virtual_store")
+
 library = Library.new
 
 world_j = Magazine.new "WorldJ"

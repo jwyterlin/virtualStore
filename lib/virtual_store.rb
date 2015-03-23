@@ -1,3 +1,4 @@
+require File.expand_path("lib/magazine")
 require File.expand_path("lib/currency_formatter")
 require File.expand_path("lib/media")
 require File.expand_path("lib/dvd")

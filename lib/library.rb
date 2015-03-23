@@ -4,31 +4,31 @@ class Library
 
   def initialize
     @database_files = DatabaseFiles.new
-    @books ||= []
+    @medias ||= []
   end
 
-  def add(book)
-    save book do
-      @books << book
-    end
+  def add(media)
+    save media do
+      medias << media
+    end if media.kind_of? Media
   end
 
-  def books_by_category(category)
-    @books.select { |book| book.category == category }
+  def medias_by_category(category)
+    medias.select { |media| media.category == category }
   end
 
-  def books
-    @books = @database_files.load
+  def medias
+    @medias = @database_files.load
   end
 
   def each
-    books.each { |book| yield book }
+    medias.each { |media| yield media }
   end
 
   private
 
-  def save(book)
-    @database_files.save book
+  def save(media)
+    @database_files.save media
     yield
   end
 
