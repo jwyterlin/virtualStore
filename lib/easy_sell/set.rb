@@ -4,7 +4,7 @@ module EasySell
 
     def initialize
       @database_files = DatabaseFiles.new
-      @books ||= []
+      @books ||= ::Array.new
     end
 
     def add(book)
