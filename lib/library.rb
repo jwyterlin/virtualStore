@@ -10,11 +10,13 @@ class Library
   def add(media)
     save media do
       medias << media
-    end if media.kind_of? Media
+    end
   end
 
   def medias_by_category(category)
-    medias.select { |media| media.category == category }
+    medias.select do |media|
+      media.category == category if media.respond_to? :category
+    end
   end
 
   def medias
