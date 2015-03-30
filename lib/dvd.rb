@@ -1,20 +1,9 @@
 #coding: utf-8
 class DVD < Media
 
-  include CurrencyFormatter
-
   attr_reader :title
 
-  def self.format_currency(*variables_and_methods)
-
-    variables_and_methods.each do |name|
-      define_method("formatted_#{name}") do
-        value = respond_to?(name) ? send(name) : instance_variable_get("@#{name}")
-        "R$ #{value}"
-      end
-    end
-
-  end
+  extend CurrencyFormatter
 
   format_currency :value_with_discount, :value
 
