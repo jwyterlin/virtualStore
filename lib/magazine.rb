@@ -3,13 +3,14 @@ require "FileUtils"
 
 class Magazine
 
-  attr_reader :title, :id
+  attr_reader :title, :id, :destroyed
   attr_accessor :value
 
   def initialize(title, value)
     @title = title
     @value = value
     @id = self.class.next_id
+    @destroyed = false
   end
 
   def save
@@ -19,7 +20,10 @@ class Magazine
   end
 
   def destroy
-    FileUtils.rm "db/magazines/#{@id}.yml"
+    unless @destroyed
+      @destroyed = true
+      FileUtils.rm "db/magazines/#{@id}.yml"
+    end
   end
 
   def self.find(id)
