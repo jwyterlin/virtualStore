@@ -1,3 +1,7 @@
 require File.expand_path("lib/virtual_store")
 
-Magazine.find 42
+begin
+  Magazine.find 42
+rescue
+  p "The object you're looking for was not found"
+end
