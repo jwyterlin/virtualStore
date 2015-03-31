@@ -15,6 +15,10 @@ class Magazine
     end
   end
 
+  def self.find(id)
+    YAML.load File.open("db/magazines/#{id}.yml", "r")
+  end
+
   private
 
   def serialize
