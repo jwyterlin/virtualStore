@@ -3,20 +3,6 @@ require "FileUtils"
 
 module ActiveFile
 
-  def included(base)
-    base.extend ClassMethods
-    base.class_eval do
-
-      attr_reader :id, :destroyed, :new_record
-
-      def initialize
-        @id = self.class.next_id
-        @destroyed = false
-        @new_record = true
-      end
-    end
-  end
-
   def save
 
     @new_record = false
@@ -70,6 +56,15 @@ module ActiveFile
 
   def self.included(base)
     base.extend ClassMethods
+    base.class_eval do
+      attr_reader :id, :destroyed, :new_record
+
+      def initialize
+        @id = self.class.next_id
+        @destroyed = false
+        @new_record = true
+      end
+    end
   end
 
   def serialize
