@@ -1,3 +1,4 @@
+require File.expand_path("lib/active_file")
 require File.expand_path("lib/document_not_found")
 require File.expand_path("lib/magazine")
 require File.expand_path("lib/currency_formatter")
