@@ -1,23 +1,17 @@
 class Magazine
 
-  @id = 0
+  attr_reader :title, :id
 
-  def self.id
-    @id += 1
-  end
-
-  def initialize(title)
-    @id = self.class.id
+  def initialize(title, value)
     @title = title
+    @value = value
+    @id = self.class.next_id
   end
 
-  def id
-    @id
-  end
+  private
 
-  def title
-    title_uppercase = @title.upcase
-    "Title: #{title_uppercase}"
+  def self.next_id
+    Dir.glob("db/magazines/*.yml").size + 1
   end
 
 end

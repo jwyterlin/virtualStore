@@ -3,7 +3,7 @@ class DVD < Media
 
   attr_reader :title
 
-  extend CurrencyFormatter
+  include CurrencyFormatter
 
   format_currency :value_with_discount, :value
 
