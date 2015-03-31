@@ -1,6 +1,7 @@
 class Magazine
 
   attr_reader :title, :id
+  attr_accessor :value
 
   def initialize(title, value)
     @title = title
