@@ -1,3 +1,6 @@
+#coding utf-8
+require "FileUtils"
+
 class Magazine
 
   attr_reader :title, :id
@@ -13,6 +16,10 @@ class Magazine
     File.open("db/magazines/#{@id}.yml","w") do |file|
       file.puts serialize
     end
+  end
+
+  def destroy
+    FileUtils.rm "db/magazines/#{@id}.yml"
   end
 
   def self.find(id)
