@@ -59,10 +59,16 @@ module ActiveFile
     base.class_eval do
       attr_reader :id, :destroyed, :new_record
 
-      def initialize
+      def initialize(parameters = {})
+
         @id = self.class.next_id
         @destroyed = false
         @new_record = true
+
+        parameters.each do |key,value|
+          instance_variable_set "@#{key}", value
+        end
+
       end
     end
   end
